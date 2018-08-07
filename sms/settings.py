@@ -39,7 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'sms',
 	'rest_framework',
-    'eduinfosys'
+	'accounting',
+	'attendence',
+	'calander',
+	'classe',
+	'exam',
+	'library',
+	'newroom',
+	'noticeboard',
+	'parent',
+	'section',
+	'student',
+	'subject',
+	'teacher',
+	'timetable',
+
 ]
 
 MIDDLEWARE = [

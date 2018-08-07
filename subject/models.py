@@ -1,0 +1,15 @@
+from django.db import models
+from django.utils import timezone
+import datetime
+from classe.models import classe
+from teacher.models import teacher
+
+
+
+class Subject(models.Model):
+	Name=models.CharField(max_length=64)
+	Class=models.ForeignKey(classe,on_delete=models.CASCADE)
+	Teacher=models.ForeignKey(teacher,on_delete=models.CASCADE)
+	Book=models.CharField(max_length=64)
+	def __str__(self):
+		return	self.Name
