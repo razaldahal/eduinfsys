@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from .models import *
@@ -56,4 +56,31 @@ class sectionViewsets(viewsets.ModelViewSet):
 
 			return Response(status.HTTP_204_NO_CONTENT)
 
+
+'''
+
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class sectionList(generics.ListCreateAPIView):
+	queryset = section.objects.all()
+	serializer_class = sectionSerializer
+
+
+class sectionDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = section.objects.all()
+	serializer_class = sectionSerializer
 

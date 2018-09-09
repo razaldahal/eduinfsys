@@ -8,6 +8,6 @@ class timetableSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model=timetable
-		fields=('Class','Section','Teacher','Subject','Time_start','Time_end','Day','Date')
+		fields=('Class','Section','Event','Event_description','Teacher','Subject','Time_start','Time_end','Day','Date')
 
 

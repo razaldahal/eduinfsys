@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 
@@ -47,4 +47,30 @@ class CalanderViewsets(viewsets.ModelViewSet):
 		if serializer.is_valid():
 			data=serializer.data
 			Calander.objects.get(pk=pk).delete()									
-							
+						'''
+
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class calanderList(generics.ListCreateAPIView):
+	queryset = calander.objects.all()
+	serializer_class = calanderSerializer
+
+
+class calanderDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = calander.objects.all()
+	serializer_class = calanderSerializer
+

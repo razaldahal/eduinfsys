@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from .models import *
@@ -65,3 +65,64 @@ class studentViewsets(viewsets.ModelViewSet):
 			student.objects.get(pk=pk).delete()	
 
 			return Response(status.HTTP_204_NO_CONTENT)
+'''
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+class studentList(generics.ListCreateAPIView):
+	queryset = student.objects.all()
+	serializer_class = studentSerializer
+
+class studentDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = student.objects.all()
+	serializer_class = studentSerializer
+	
+	
+	
+class qualificationList(generics.ListCreateAPIView):
+	queryset = qualifications.objects.all()
+	serializer_class = qualificationSerializer
+
+
+class qualificationDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = qualifications.objects.all()
+	serializer_class = qualificationSerializer
+
+class admissionList(generics.ListCreateAPIView):
+	queryset = admission.objects.all()
+	serializer_class = admissionSerializer
+
+
+class admissionDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = admission.objects.all()
+	serializer_class = admissionSerializer
+	
+
+class otherList(generics.ListCreateAPIView):
+	queryset = other.objects.all()
+	serializer_class = otherSerializer
+
+
+class otherDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = other.objects.all()
+	serializer_class = otherSerializer
+
+
+class hostelList(generics.ListCreateAPIView):
+	queryset = hostel.objects.all()
+	serializer_class = hostelSerializer
+
+
+class hostelDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = hostel.objects.all()
+	serializer_class = hostelSerializer

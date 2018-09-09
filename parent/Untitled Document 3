@@ -1,0 +1,5 @@
+from rest_framework import viewsets
+
+class SearchViewsets(viewsets.modelviewsets):
+	queryset=Search.objects.all()
+	serializer_class=SearchSerializer

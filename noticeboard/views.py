@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from .models import *
@@ -47,3 +47,29 @@ class noticeboardViewsets(viewsets.ModelViewSet):
 			data=serializer.data
 			noticeboard.objects.get(pk=pk).delete()
 			return Response(status.HTTP_204_NO_CONTENT)		
+'''
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class noticeboardList(generics.ListCreateAPIView):
+	queryset = noticeboard.objects.all()
+	serializer_class = noticeboardSerializer
+
+
+class noticeboardDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = noticeboard.objects.all()
+	serializer_class = noticeboardSerializer
+

@@ -8,7 +8,7 @@ class noticeboardSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model=noticeboard
-		fields=('Name','Date_Published','Details','Date_Expiry')
+		fields=('Name','Date_Published','Event_Details','Date_Expiry')
 
 
 

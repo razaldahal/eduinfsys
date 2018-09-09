@@ -4,18 +4,18 @@ import datetime
 from classe.models import classe
 from section.models import section
 from teacher.models import teacher
-from subject.models import Subject
+from subject.models import subject
 
 
 
 
 class timetable(models.Model):
-	Class=models.ForeignKey(classe,on_delete=models.CASCADE)
-	Section=models.ForeignKey(section,on_delete=models.CASCADE)
-	Teacher=models.ForeignKey(teacher,on_delete=models.CASCADE)
-	Subject=models.ForeignKey(Subject,on_delete=models.CASCADE)
+	user=
 	Time_start=models.TimeField()
 	Time_end=models.TimeField()
+	Event=models.CharField(max_length=80)
+	Event_description=models.TextField()
+	
 	Day=(
 		('0','Sunday'),
 		('1','Monday'),

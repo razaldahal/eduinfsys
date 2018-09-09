@@ -1,0 +1,7 @@
+from rest_framework import serializers
+
+class SearchSerializer(serializers.Modelserializer):
+	
+class Meta:
+model=Search
+fields=(input_query)

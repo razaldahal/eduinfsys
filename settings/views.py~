@@ -1,0 +1,94 @@
+from django.shortcuts import render
+from .models import *
+from django.http import HttpResponse,JsonResponse 
+import json
+
+def Institutiondetails(request, pk=None):
+	if request.method=='GET':
+			#return JsonResponse(list(Institution.objects.get(id=request.head.get(id)).values()))
+			
+			print ('pk', pk)
+			if pk:
+				return JsonResponse( list(Institution.objects.filter(id=pk).values()), safe=False)
+			else:
+				return JsonResponse(list(Institution.objects.filter().values()),safe=False)
+		
+	elif request.method=='POST':
+		data = json.loads(request.body)
+		required = ['email','fax','name','address','Institution_code','phone_no','email','admin_contact_person','mobile','country','currency']
+		keys = data.keys()
+		for k in required:
+			if k not in keys:
+				return JsonResponse({'error':k + ' is missing & is required '})		
+		
+		
+		else:
+			#Institution.objects.all().delete()
+			Institution.objects.get_or_create(name=data['name'],address=data['address'],phone_no=data['phone_no'],email=data['email'],admin_contact_person=data['admin_contact_person'],mobile=data['mobile'],fax=data['fax'],country=data['country'],currency=data['currency'],Institution_code=data['Institution_code'])
+		return JsonResponse(data)
+	elif request.method=='PUT':
+		data=json.loads(request.body)
+		Institution.objects.update_or_create(data) 
+		return JsonResponse(data)
+	
+	elif request.method=='DELETE':
+		if pk:
+			Institution.objects.get(id=pk).delete()
+			return JsonResponse({'message':'object with id'+str(pk)+'is deleted'})
+		else:	
+			return JsonResponse({'message':'sorry cannot delete all'})
+def Academicsdetails(request,pk=None):
+	if request.method=='GET':
+		if pk:
+			return JsonResponse(list(Academics.objects.filter(id=pk).values()),safe=False)
+		else:
+			return JsonResponse(list(Academics.objects.filter().values()),safe=False)
+	elif request.method=='POST':
+		data=json.loads(request.body)
+		required=['start_year','end_year','start_month','end_month','Active_Deactive']
+		keys=data.keys()
+		for k in required:
+			if k not in keys:
+				return JsonResponse({'error':k+' is missing & required'})
+			else:
+				Academics.objects.get_or_create(data)
+			return JsonResponse(data)
+	elif request.method=='PUT':
+		data=json.loads(request.body)
+		Academics.objects.update_or_create(data)
+		return JsonResponse(data)
+	elif request.method=='DELETE':
+		if pk:
+			Academics.objects.get(id=pk).delete()
+			return JsonResponse({'message':'object with id'+' '+str(pk)+' deleted'})
+		else:
+			return JsonResponse({'message':'sorry cannot delete all'})
+def CRdetails(request,pk=None):
+	if request.method=='GET':
+		if pk:
+			return JsonResponse(list(Caste_Religion.objects.get(id=pk).values()),safe=False)
+		else:
+			return JsonResponse(list(Caste_Religion.objects.filter().values()),safe=False)
+	
+	elif request.method=='POST':
+		data=json.loads(request.body)
+		required=['student_caste','student_religion']
+		keys=data.keys()
+		for k in required:
+			if k not in keys:
+				return JsonResponse({'error':k+' is missing & required'})
+			else:
+				Caste_Religion.objects.get_or_create(data)
+		return JsonResponse(data)
+	elif request.method=='PUT':
+		data=json.loads(request.body)
+		Caste_Religion.objects.update_or_create(data)
+		return JsonResponse(data)
+	elif request.method=='DELETE':
+		if pk:
+			Caste_Religion.objects.get(id=pk).delete()
+			return JsonResponse({'message':'object with id '+str(pk)+' deleted'})
+		else:
+			return JsonResponse({'error':'cannot delete all'})								
+									
+						

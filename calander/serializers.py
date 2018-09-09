@@ -3,10 +3,10 @@ from django.db import models
 from rest_framework import serializers
 from .models import *
 
-class CalanderSerializer(serializers.ModelSerializer):
+class calanderSerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model=Calander
+		model=calander
 		fields=('Date','Event','Details')
 
 

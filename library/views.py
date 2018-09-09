@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from student.models import student
@@ -62,4 +62,31 @@ class LibrarieViewsets(viewsets.ModelViewSet):
 			Librarie.objects.get(pk=pk).delete()	
 
 			return Response(status.HTTP_204_NO_CONTENT)
+
+'''
+
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class libraryList(generics.ListCreateAPIView):
+	queryset = library.objects.all()
+	serializer_class = librarySerializer
+
+
+class libraryDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = library.objects.all()
+	serializer_class = librarySerializer
 

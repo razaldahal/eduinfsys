@@ -1,0 +1,16 @@
+from django.db import models
+
+from rest_framework import serializers
+
+from .models import *
+			
+class examSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model=exam
+		fields=('Subject',
+				'Class',
+				'Date',
+				'full_marks',
+				'pass_marks')
+

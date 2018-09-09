@@ -4,13 +4,13 @@ from rest_framework import serializers
 
 from .models import *
 			
-class ExamSerializer(serializers.ModelSerializer):
+class examSerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model=Exam
+		model=exam
 		fields=('Subject',
 				'Class',
-				'Date',
+				'Date_time',
 				'full_marks',
 				'pass_marks')
 

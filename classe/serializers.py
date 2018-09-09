@@ -7,7 +7,7 @@ class classeSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model=classe
-		fields=('Class','Section','Capacity','No_of_Students')
+		fields=('id','Class','Capacity','No_of_Students')
 
 
 

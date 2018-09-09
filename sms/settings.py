@@ -25,7 +25,7 @@ SECRET_KEY = 'f(*gv2f$)3^yv5a9nc5xm14zzrdro4^$8vx-=%gdcuomi+18cp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'transport',
 	'sms',
+	'djmoney',
 	'rest_framework',
 	'accounting',
 	'attendence',
@@ -53,6 +55,13 @@ INSTALLED_APPS = [
 	'subject',
 	'teacher',
 	'timetable',
+    	'book',
+	   'drf_multiple_model',
+	'payment'	,
+	'expense',
+	'django_countries',
+	'languages',
+    'settings'
 
 ]
 
@@ -60,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

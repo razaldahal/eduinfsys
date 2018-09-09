@@ -6,11 +6,11 @@ from .models import *
 
 
 
-class AccountingSerializer(serializers.ModelSerializer):
+class accountingSerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model=Accounting
-		fields=('student','fees_paid','fees_due','status','Date_of_Transaction','Time_of_Transaction')
+		model=accounting
+		fields=('student','fees_paid','status','Date_of_Transaction','Time_of_Transaction')
 
 
 

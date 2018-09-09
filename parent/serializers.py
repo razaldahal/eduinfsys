@@ -6,13 +6,16 @@ from .models import *
 
 
 
-class ParentSerializer(serializers.ModelSerializer):
+class parentSerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model=Parent
+		model=parent
 		fields=('Name_of_Father',
+				'occupation_of_father',
 				'Name_of_Mother',
-				'Contacts',
+				'occupation_of_mother',
+				'Contact_No_Father',
+				'Contact_No_Mother',
 				'Address_Permanent',
 				'Address_Current',
 				'Related_Student')

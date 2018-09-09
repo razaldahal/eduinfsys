@@ -6,11 +6,11 @@ from .models import *
 
 
 	
-class AttendenceSerializer(serializers.ModelSerializer):
+class attendenceSerializer(serializers.ModelSerializer):
 
 	class Meta:
-			model=Attendence
-			fields=('Date',
+			model=attendence
+			fields=('Date','teacher',
 				'student',
 				'Is_Present')
 

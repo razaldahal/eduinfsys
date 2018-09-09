@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from .models import *
@@ -56,3 +56,30 @@ class SubjectViewsets(viewsets.ModelViewSet):
 			Subject.objects.get(pk=pk).delete()	
 
 			return Response(status.HTTP_204_NO_CONTENT)
+'''
+
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class subjectList(generics.ListCreateAPIView):
+	queryset = subject.objects.all()
+	serializer_class = subjectSerializer
+
+
+class subjectDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = subject.objects.all()
+	serializer_class = subjectSerializer
+

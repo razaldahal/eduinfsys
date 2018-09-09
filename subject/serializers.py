@@ -5,10 +5,10 @@ from .models import *
 
 
 
-class SubjectSerializer(serializers.ModelSerializer):
+class subjectSerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model=Subject
+		model=subject
 		fields=('Name',
 			'Class',
 			'Teacher',

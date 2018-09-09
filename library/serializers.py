@@ -5,10 +5,10 @@ from student.models import student
 from .models import *
 
 
-class LibrarieSerializer(serializers.ModelSerializer):
+class librarySerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model=Librarie
+		model=library
 		fields=('Book',
 				'No_of_Books_Total',
 				'No_of_Books_Avilable',

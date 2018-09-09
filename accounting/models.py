@@ -4,15 +4,60 @@ import datetime
 from student.models import student
 
 
-class Accounting(models.Model):
+class studentsaccounting(models.Model):
 	student=models.ForeignKey(student,on_delete=models.CASCADE)
+	fee_type=models.CharField
+	fee_term=
 	fees_paid=models.IntegerField()
-	fees_due=models.IntegerField()
 	status=models.TextField()
 	Date_of_Transaction=models.DateField()
 	Time_of_Transaction=models.TimeField(default=timezone.now())
+	fees_due=
+	fees_due_amount=
+	slip_or_receipt_no=
+	ledger_page_no=
+	ledger_name=
+	paid_by=
+	received_by=
 
+	
+class payments(models.Model):
+	payment_type=
+	payment_reason=
+	paid_to=
+	paid_method=
+	ledger_record_name=
+	ledger_page_no=
+	paid_by=
+	paid_amount=
+	cheque_no=
+	date_time_of_transaction=
+	approved_by=
+class accountant(models.Model):
+	name=
+	level_or_department=
+	address=
+	email=
+	phone_no=
+	citizenship=
+	citizenship_no=
+	salary_monthly=
+	photo=
+	reports_to=
+	working_for_period=
+	intro_by=
+	approved_for_work_by=
+	esp_acc_id=
+	
+	
+	
+			
+	
+	
+	
+		
 
 	
 	def __str__(self):
 		return self.student+' '+self.fees_paid+' '+self.fees_due
+'''

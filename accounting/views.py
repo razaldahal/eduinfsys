@@ -1,13 +1,13 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from student.models import student
 from .serializers import *
 from .models import *
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status'''
 
-class AccountingViewsets(viewsets.ModelViewSet):
+'''class AccountingViewsets(viewsets.ModelViewSet):
 	queryset=Accounting.objects.all()
 	serializer_class=AccountingSerializer
 
@@ -58,3 +58,34 @@ class AccountingViewsets(viewsets.ModelViewSet):
 			data=serializer.data
 			Accounting.objects.get(pk=pk).delete()	
 			return Response(status.HTTP_204_NO_CONTENT)
+'''
+
+
+
+
+
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class accountingList(generics.ListCreateAPIView):
+	queryset = accounting.objects.all()
+	serializer_class = accountingSerializer
+
+
+class accountingDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = accounting.objects.all()
+	serializer_class = accountingSerializer
+

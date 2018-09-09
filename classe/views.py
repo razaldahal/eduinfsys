@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from .models import *
@@ -53,4 +53,30 @@ class classeViewsets(viewsets.ModelViewSet):
 		classe = self.get_object(pk)
 		classe.objects.get(pk=pk).delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)
+
+'''
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class classeList(generics.ListCreateAPIView):
+	queryset = classe.objects.all()
+	serializer_class = classeSerializer
+
+
+class classeDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = classe.objects.all()
+	serializer_class = classeSerializer
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+'''from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import serializers
 from classe.models import classe
@@ -20,3 +20,29 @@ class newroomViewsets(viewsets.ModelViewSet):
 			return Response(data)
 		else:
 			return Response(serializer.errors)
+'''
+
+from django.shortcuts import render
+from rest_framework import viewsets 
+from rest_framework import serializers
+from .models import *
+from .serializers import *
+from rest_framework import request
+from rest_framework.response import Response
+from rest_framework import generics
+
+
+
+
+
+
+
+class newroomList(generics.ListCreateAPIView):
+	queryset = newroom.objects.all()
+	serializer_class = newroomSerializer
+
+
+class newroomDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = newroom.objects.all()
+	serializer_class = newroomSerializer
+
